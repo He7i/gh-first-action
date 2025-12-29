@@ -1,0 +1,19 @@
+name: First Workflow
+# manually trigger workflow
+on: workflow_dispatch
+# has to be jobs not job (important)
+jobs: 
+  # job name
+  first-job:
+    # define runner on which job will execute steps
+    # Questions to ask:
+    # Does my build depend on OS-specific tools?
+    # Is my workflow slow, memory-hungry, or CPU-heavy?(use ubuntu latest)
+    # Do I need exact versions of tools or custom system packages?(if i do maybe self hosted is better)
+    # Can caching speed this up?(self hosted runner:A self-hosted runner is a machine you own and control that you register with GitHub so that GitHub Actions can run jobs on it.)
+    runs-on: ubuntu-latest
+    steps:
+     - name: Print greeting
+       run: exho "Hello World"
+     - name: Print goodbye
+       run: eccho "Done - bye"
